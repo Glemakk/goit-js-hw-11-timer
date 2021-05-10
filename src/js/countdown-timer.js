@@ -1,30 +1,5 @@
 import { refs } from './constants'
 
-// const date = new Date(2021, 4, 25, 5, 40, 0, 0);
-
-// // Проверим
-// //console.log(`2021, 5, 25, 5, 40 соответствует ${date.getTime()}`);
-// // "2017, 6, 14, 5, 40 соответствует 1500000000000"
-
-// /* С помощью методов set */
-// // Создадим новый объект с текущей датой
-// const secondDate = new Date();
-
-// // Изменим год и в нем же месяц и день месяца
-// secondDate.setFullYear(2021, 5, 25);
-// // Изменим час и в нем же минуты, секунды и милисекунды
-// secondDate.setHours(5, 40, 0, 0);
-
-// Проверим
-//console.log(`2017, 6, 14, 5, 40 соответствует ${secondDate.getTime()}`);
-
-
-// new CountdownTimer({
-//   selector: '#timer-1',
-//   targetDate: new Date(2021, 4, 25, 5, 40, 0, 0);,
-// });
-
-
 class CountdownTimer{
     constructor({ targetDate }) {
         this.targetDate = targetDate;
@@ -106,4 +81,33 @@ const timer = new CountdownTimer({
 //     refs.mins.textContent = `: ${mins}`;
 //     refs.secs.textContent = `: ${secs}`;
 // }
+
+
+
+
+//---------------Сеттер даты
+
+// const date = new Date(2021, 4, 25, 5, 40, 0, 0);
+
+// // Проверим
+// //console.log(`2021, 5, 25, 5, 40 соответствует ${date.getTime()}`);
+// // "2017, 6, 14, 5, 40 соответствует 1500000000000"
+
+// /* С помощью методов set */
+// // Создадим новый объект с текущей датой
+// const secondDate = new Date();
+
+// // Изменим год и в нем же месяц и день месяца
+// secondDate.setFullYear(2021, 5, 25);
+// // Изменим час и в нем же минуты, секунды и милисекунды
+// secondDate.setHours(5, 40, 0, 0);
+
+// Проверим
+//console.log(`2017, 6, 14, 5, 40 соответствует ${secondDate.getTime()}`);
+
+
+// new CountdownTimer({
+//   selector: '#timer-1',
+//   targetDate: new Date(2021, 4, 25, 5, 40, 0, 0);,
+// });
 
