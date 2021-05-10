@@ -3,7 +3,7 @@ import { refs } from './constants'
 class CountdownTimer{
     constructor({ targetDate }) {
         this.targetDate = targetDate;
-        this.start();
+        // this.start();
     }
 start() {
         const startTime = this.targetDate.getTime();
@@ -31,9 +31,9 @@ const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
     
     updateTimerFace({days, hours, mins, secs}) {
     refs.days.textContent = `${days}`;
-    refs.hours.textContent = `: ${hours}`;
-    refs.mins.textContent = `: ${mins}`;
-    refs.secs.textContent = `: ${secs}`;
+    refs.hours.textContent = `${hours}`;
+    refs.mins.textContent = `${mins}`;
+    refs.secs.textContent = `${secs}`;
 }
 
 }
@@ -42,6 +42,14 @@ const timer = new CountdownTimer({
   selector: '#timer-1',
   targetDate: new Date(2021, 4, 25, 5, 40, 0, 0),
 });
+
+const timer2 = new CountdownTimer({
+  selector: '#timer-2',
+  targetDate: new Date(2021, 4, 15, 5, 40, 0, 0),
+});
+
+timer.start();
+// timer2.start();
 
 
 // //-----------------without class
