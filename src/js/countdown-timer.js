@@ -1,18 +1,23 @@
 import { refs } from './constants'
 
+console.log(refs.days)
+
 class CountdownTimer{
-    constructor({ targetDate }) {
+    constructor({ selector, targetDate }) {
         this.targetDate = targetDate;
+        this.selector = selector;
+        this.refsContainer = document.querySelector(selector);
         // this.start();
     }
-start() {
-        const startTime = this.targetDate.getTime();
+  start() {
+        const startTime = this.targetDate;
         setInterval(() => {
             const currentTime = Date.now();
             const deltaTime = startTime -currentTime;
             const time = this.getTimeComponents(deltaTime);
+            
             this.updateTimerFace(time);
-            console.log(time);
+            // console.log(time);
         }, 1000);
     }
 
@@ -30,12 +35,11 @@ const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
     }
     
     updateTimerFace({days, hours, mins, secs}) {
-    refs.days.textContent = `${days}`;
-    refs.hours.textContent = `${hours}`;
-    refs.mins.textContent = `${mins}`;
-    refs.secs.textContent = `${secs}`;
-}
-
+    this.refsContainer.querySelector('[data-value=days]').textContent = days;
+    this.refsContainer.querySelector('[data-value=hours]').textContent = hours;
+    this.refsContainer.querySelector('[data-value=mins]').textContent = mins;
+    this.refsContainer.querySelector('[data-value=secs]').textContent = secs;
+    }
 }
 
 const timer = new CountdownTimer({
@@ -45,11 +49,11 @@ const timer = new CountdownTimer({
 
 const timer2 = new CountdownTimer({
   selector: '#timer-2',
-  targetDate: new Date(2021, 4, 15, 5, 40, 0, 0),
+  targetDate: new Date(2021, 5, 21, 6, 30, 5, 0),
 });
 
 timer.start();
-// timer2.start();
+timer2.start();
 
 
 // //-----------------without class
